@@ -2,10 +2,8 @@ import Header from '../components/Header';
 import Head from 'next/head';
 import Image from 'next/image';
 import data from '../lib/data.json';
-import { useEffect, useState } from 'react';
 import usePlanetSearch from '../lib/usePlanetSearch';
 import PlanetContainer from '../components/PlanetContainer';
-import pic from '../public/planet-earth.svg';
 
 export default function Home() {
   const { planet, findPlanet } = usePlanetSearch(data);
@@ -19,11 +17,6 @@ export default function Home() {
       </Head>
       <Header findPlanet={findPlanet} />
       {planet?.name && <PlanetContainer planet={planet} />}
-      <Image
-        src="/static/planet-earth.svg"
-        alt="planet earth"
-        height="100px"
-        width="100px"></Image>
       <footer></footer>
     </div>
   );

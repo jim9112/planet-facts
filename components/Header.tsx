@@ -5,7 +5,7 @@ export default function Header({ findPlanet }: any) {
   };
   return (
     <div className="grid grid-flow-col">
-      <h1>Planets</h1>
+      <h1>The Planets</h1>
       <ul className="grid grid-flow-col">
         <li onClick={() => handleClick('Mercury')}>MERCURY</li>
         <li onClick={() => handleClick('Venus')}>VENUS</li>
