@@ -4,9 +4,9 @@ export default function Header({ findPlanet }: any) {
     findPlanet(planetName);
   };
   return (
-    <div className="grid grid-flow-col">
-      <h1>The Planets</h1>
-      <ul className="grid grid-flow-col">
+    <div className="grid grid-flow-col text-xs py-5 px-5 items-center">
+      <h1 className="font-antonio font-medium text-3xl">The Planets</h1>
+      <ul className="grid grid-flow-col font-spartan font-bold cursor-pointer">
         <li onClick={() => handleClick('Mercury')}>MERCURY</li>
         <li onClick={() => handleClick('Venus')}>VENUS</li>
         <li onClick={() => handleClick('Earth')}>EARTH</li>
