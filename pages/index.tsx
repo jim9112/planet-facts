@@ -4,6 +4,7 @@ import Image from 'next/image';
 import data from '../lib/data.json';
 import { useEffect, useState } from 'react';
 import usePlanetSearch from '../lib/usePlanetSearch';
+import PlanetContainer from '../components/PlanetContainer';
 
 export default function Home() {
   const { planet, findPlanet } = usePlanetSearch(data);
@@ -16,11 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header findPlanet={findPlanet} />
-      <main className="container mx-auto">
-        <h1 className="text-center text-3xl">
-          {planet?.name ? planet?.name : 'no planet found'}
-        </h1>
-      </main>
+      {planet?.name && <PlanetContainer planet={planet} />}
 
       <footer></footer>
     </div>
