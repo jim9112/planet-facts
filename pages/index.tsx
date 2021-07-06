@@ -1,8 +1,13 @@
 import Header from '../components/Header';
 import Head from 'next/head';
 import Image from 'next/image';
+import data from '../lib/data.json';
+import { useEffect, useState } from 'react';
+import usePlanetSearch from '../lib/usePlanetSearch';
 
 export default function Home() {
+  const { planet } = usePlanetSearch(data);
+  console.log(data);
   return (
     <div>
       <Head>
@@ -12,7 +17,9 @@ export default function Home() {
       </Head>
       <Header />
       <main className="container mx-auto">
-        <h1 className="text-center text-3xl">Planets</h1>
+        <h1 className="text-center text-3xl">
+          {planet?.name ? planet?.name : 'no planet found'}
+        </h1>
       </main>
 
       <footer></footer>
