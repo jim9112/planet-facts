@@ -25,8 +25,8 @@ const PlanetContainer = ({ planet }: CompProps) => {
         />
       </div>
       <div>
-        <h1>{planet.name}</h1>
-        <p>{planet.overview.content}</p>
+        <h1 className="font-antonio font-medium text-7xl">{planet.name}</h1>
+        <p className="font-spartan">{planet.overview.content}</p>
         <span>
           Source:{' '}
           <a href={planet.overview.source} target="blank">
