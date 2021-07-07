@@ -34,8 +34,8 @@ const PlanetContainer = ({ planet }: CompProps) => {
 
   return (
     // display planet image based on user method selection
-    <>
-      <div className="grid grid-cols-2">
+    <div className="px-24">
+      <div className="grid grid-cols-2 mt-20 mb-20">
         {mode.name && (
           <PlanetImageContainer
             name={mode.name}
@@ -43,7 +43,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
             secondPlanetImage={mode.secondPlanetImage}
           />
         )}
-        <div>
+        <div className="grid grid-cols-1 gap-10">
           <DescriptionContainer
             name={mode.name}
             content={mode.content}
@@ -82,7 +82,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
           <span>{planet.temperature}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

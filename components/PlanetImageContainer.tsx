@@ -14,7 +14,7 @@ const PlanetImageContainer = ({
     <div className="relative grid place-items-center">
       <Image width="200px" height="200px" src={planetImage} alt={name} />
       {secondPlanetImage && (
-        <div className="absolute top-1/3 left-1/3">
+        <div className="absolute top-1/2 left-1/3">
           <Image
             width="200px"
             height="220px"

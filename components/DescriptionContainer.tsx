@@ -6,7 +6,7 @@ type CompProps = {
 
 const DescriptionContainer = ({ name, content, source }: CompProps) => {
   return (
-    <div>
+    <div className="grid grid-cols-1 gap-6">
       <h1 className="font-antonio font-medium text-7xl">{name}</h1>
       <p className="font-spartan">{content}</p>
       <span>
