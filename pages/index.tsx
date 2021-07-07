@@ -7,7 +7,6 @@ import PlanetContainer from '../components/PlanetContainer';
 
 export default function Home() {
   const { planet, findPlanet } = usePlanetSearch(data);
-  console.log(data);
   return (
     <div className="bg-background-stars bg-black min-h-screen text-white">
       <Head>

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import useModeSelection from '../lib/useModeSelection';
+import DescriptionContainer from './DescriptionContainer';
 import PlanetImageContainer from './PlanetImageContainer';
 
 type CompProps = {
@@ -13,54 +14,49 @@ type CompProps = {
       content: string;
       source: string;
     };
+    structure: {
+      content: string;
+      source: string;
+    };
+    geology: {
+      content: string;
+      source: string;
+    };
   };
 };
 
 const PlanetContainer = ({ planet }: CompProps) => {
-  const [displayMode, setDisplayMode] = useState<
-    'overview' | 'internal' | 'geology'
-  >('overview');
+  const { mode, dispatch } = useModeSelection(planet);
+
   return (
     // display planet image based on user method selection
-    // To do: find less verbose way of doing this
     <div className="grid grid-cols-2">
-      {displayMode === 'overview' && (
+      {mode.name && (
         <PlanetImageContainer
-          name={planet.name}
-          planetImage={planet.images.planet}
-          secondPlanetImage={null}
-        />
-      )}
-      {displayMode === 'internal' && (
-        <PlanetImageContainer
-          name={planet.name}
-          planetImage={planet.images.internal}
-          secondPlanetImage={null}
-        />
-      )}
-      {displayMode === 'geology' && (
-        <PlanetImageContainer
-          name={planet.name}
-          planetImage={planet.images.planet}
-          secondPlanetImage={planet.images.geology}
+          name={mode.name}
+          planetImage={mode.planetImage}
+          secondPlanetImage={mode.secondPlanetImage}
         />
       )}
       <div>
-        <h1 className="font-antonio font-medium text-7xl">{planet.name}</h1>
-        <p className="font-spartan">{planet.overview.content}</p>
-        <span>
-          Source:{' '}
-          <a href={planet.overview.source} target="blank">
-            Wikapedia
-          </a>
-        </span>
+        <DescriptionContainer
+          name={mode.name}
+          content={mode.content}
+          source={mode.source}
+        />
         <nav>
           <ul>
-            <li onClick={() => setDisplayMode('overview')}>01 OVERVIEW</li>
-            <li onClick={() => setDisplayMode('internal')}>
+            <li
+              onClick={() => {
+                dispatch({ type: 'overview' });
+                console.log(mode.name);
+              }}>
+              01 OVERVIEW
+            </li>
+            <li onClick={() => dispatch({ type: 'internal' })}>
               02 INTERNAL STRUCTURE
             </li>
-            <li onClick={() => setDisplayMode('geology')}>
+            <li onClick={() => dispatch({ type: 'geology' })}>
               03 SURFACE GEOLOGY
             </li>
           </ul>
