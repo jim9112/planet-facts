@@ -46,13 +46,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
         />
         <nav>
           <ul>
-            <li
-              onClick={() => {
-                dispatch({ type: 'overview' });
-                console.log(mode.name);
-              }}>
-              01 OVERVIEW
-            </li>
+            <li onClick={() => dispatch({ type: 'overview' })}>01 OVERVIEW</li>
             <li onClick={() => dispatch({ type: 'internal' })}>
               02 INTERNAL STRUCTURE
             </li>
