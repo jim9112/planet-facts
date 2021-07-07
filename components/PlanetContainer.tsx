@@ -1,6 +1,8 @@
 import useModeSelection from '../lib/useModeSelection';
 import DescriptionContainer from './DescriptionContainer';
 import PlanetImageContainer from './PlanetImageContainer';
+import ModeSelect from './ModeSelect';
+import PlanetStats from './PlanetStats';
 
 type CompProps = {
   planet: {
@@ -33,7 +35,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
   const { mode, dispatch } = useModeSelection(planet);
 
   return (
-    // display planet image based on user method selection
+    // display planet image and data based on user method selection
     <div className="px-24">
       <div className="grid grid-cols-2 mt-20 mb-20">
         {mode.name && (
@@ -49,39 +51,15 @@ const PlanetContainer = ({ planet }: CompProps) => {
             content={mode.content}
             source={mode.source}
           />
-          <nav>
-            <ul className="cursor-pointer">
-              <li onClick={() => dispatch({ type: 'overview' })}>
-                01 OVERVIEW
-              </li>
-              <li onClick={() => dispatch({ type: 'internal' })}>
-                02 INTERNAL STRUCTURE
-              </li>
-              <li onClick={() => dispatch({ type: 'geology' })}>
-                03 SURFACE GEOLOGY
-              </li>
-            </ul>
-          </nav>
+          <ModeSelect dispatch={dispatch} />
         </div>
       </div>
-      <div className="grid grid-cols-4">
-        <div>
-          <h4>ROTATION TIME</h4>
-          <span>{planet.rotation}</span>
-        </div>
-        <div>
-          <h4>REVOLUTION TIME</h4>
-          <span>{planet.revolution}</span>
-        </div>
-        <div>
-          <h4>RADIUS</h4>
-          <span>{planet.radius}</span>
-        </div>
-        <div>
-          <h4>AVERAGE TEMP.</h4>
-          <span>{planet.temperature}</span>
-        </div>
-      </div>
+      <PlanetStats
+        rotation={planet.rotation}
+        radius={planet.radius}
+        revolution={planet.revolution}
+        temperature={planet.temperature}
+      />
     </div>
   );
 };
