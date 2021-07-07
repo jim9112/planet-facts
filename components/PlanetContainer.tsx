@@ -1,10 +1,13 @@
-import Image from 'next/image';
+import { useState } from 'react';
+import PlanetImageContainer from './PlanetImageContainer';
 
 type CompProps = {
   planet: {
     name: string;
     images: {
       planet: string;
+      internal: string;
+      geology: string;
     };
     overview: {
       content: string;
@@ -14,16 +17,34 @@ type CompProps = {
 };
 
 const PlanetContainer = ({ planet }: CompProps) => {
+  const [displayMode, setDisplayMode] = useState<
+    'overview' | 'internal' | 'geology'
+  >('overview');
   return (
+    // display planet image based on user method selection
+    // To do: find less verbose way of doing this
     <div className="grid grid-cols-2">
-      <div>
-        <Image
-          width="200px"
-          height="200px"
-          src={planet.images.planet}
-          alt={planet.name}
+      {displayMode === 'overview' && (
+        <PlanetImageContainer
+          name={planet.name}
+          planetImage={planet.images.planet}
+          secondPlanetImage={null}
         />
-      </div>
+      )}
+      {displayMode === 'internal' && (
+        <PlanetImageContainer
+          name={planet.name}
+          planetImage={planet.images.internal}
+          secondPlanetImage={null}
+        />
+      )}
+      {displayMode === 'geology' && (
+        <PlanetImageContainer
+          name={planet.name}
+          planetImage={planet.images.planet}
+          secondPlanetImage={planet.images.geology}
+        />
+      )}
       <div>
         <h1 className="font-antonio font-medium text-7xl">{planet.name}</h1>
         <p className="font-spartan">{planet.overview.content}</p>
@@ -35,9 +56,13 @@ const PlanetContainer = ({ planet }: CompProps) => {
         </span>
         <nav>
           <ul>
-            <li>01 OVERVIEW</li>
-            <li>02 INTERNAL STRUCTURE</li>
-            <li>03 SURFACE GEOLOGY</li>
+            <li onClick={() => setDisplayMode('overview')}>01 OVERVIEW</li>
+            <li onClick={() => setDisplayMode('internal')}>
+              02 INTERNAL STRUCTURE
+            </li>
+            <li onClick={() => setDisplayMode('geology')}>
+              03 SURFACE GEOLOGY
+            </li>
           </ul>
         </nav>
       </div>
