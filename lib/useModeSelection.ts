@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from 'react';
 
+// To Do: Fix type issues (take away "any")
 const useModeSelection = (planet: any) => {
   const [mode, dispatch]: any = useReducer((state: any, action: any) => {
     switch (action.type) {

@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import Head from 'next/head';
-import Image from 'next/image';
 import data from '../lib/data.json';
 import usePlanetSearch from '../lib/usePlanetSearch';
 import PlanetContainer from '../components/PlanetContainer';
@@ -21,6 +20,7 @@ export default function Home() {
         />
       </Head>
       <Header findPlanet={findPlanet} />
+      {/* To Do add loading and error management */}
       {planet?.name && <PlanetContainer planet={planet} />}
       <footer></footer>
     </div>

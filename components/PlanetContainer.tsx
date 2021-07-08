@@ -38,6 +38,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
     // display planet image and data based on user method selection
     <div className="px-6 lg:px-24">
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-20 mb-20">
+        {/* To Do: add a loading state */}
         {mode.name && (
           <PlanetImageContainer
             name={mode.name}
