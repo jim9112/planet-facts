@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 
 type CompProps = {
   name: string;
@@ -64,6 +64,10 @@ const useModeSelection = (planet: CompProps) => {
   };
 
   const [mode, dispatch]: any = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    dispatch({ type: 'overview' });
+  }, [planet]);
 
   return { mode, dispatch };
 };
