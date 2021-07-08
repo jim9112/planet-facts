@@ -19,7 +19,9 @@ export default function Header({ findPlanet }: any) {
         <li onClick={() => handleClick('Uranus')}>URANUS</li>
         <li onClick={() => handleClick('Neptune')}>NEPTUNE</li>
       </ul>
-      <div className="justify-self-end sm:hidden">
+      <div
+        className="justify-self-end sm:hidden cursor-pointer"
+        onClick={() => console.log('icon clicked')}>
         <Image
           src={hamburger}
           alt="hamburger icon"

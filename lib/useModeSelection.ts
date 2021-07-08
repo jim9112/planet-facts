@@ -1,8 +1,38 @@
-import { useEffect, useReducer } from 'react';
+import { useReducer } from 'react';
 
-// To Do: Fix type issues (take away "any")
-const useModeSelection = (planet: any) => {
-  const [mode, dispatch]: any = useReducer((state: any, action: any) => {
+type CompProps = {
+  name: string;
+  images: {
+    planet: string;
+    internal: string;
+    geology: string;
+  };
+  overview: {
+    content: string;
+    source: string;
+  };
+  structure: {
+    content: string;
+    source: string;
+  };
+  geology: {
+    content: string;
+    source: string;
+  };
+};
+
+const useModeSelection = (planet: CompProps) => {
+  // initial state is set to "overview mode"
+  const initialState = {
+    name: planet.name,
+    planetImage: planet.images.planet,
+    secondPlanetImage: null,
+    content: planet.overview.content,
+    source: planet.overview.source,
+  };
+
+  // reducer returns content based on mode selected
+  const reducer = (state: {}, action: { type: string }) => {
     switch (action.type) {
       case 'overview':
         return {
@@ -31,12 +61,9 @@ const useModeSelection = (planet: any) => {
       default:
         return state;
     }
-  }, []);
+  };
 
-  // update content as planet selection changes
-  useEffect(() => {
-    dispatch({ type: 'overview' });
-  }, [planet]);
+  const [mode, dispatch]: any = useReducer(reducer, initialState);
 
   return { mode, dispatch };
 };

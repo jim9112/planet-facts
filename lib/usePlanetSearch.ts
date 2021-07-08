@@ -5,8 +5,7 @@ type Planet = {
   name: string;
 };
 
-// To Do: Fix type issues (take away "any")
-const usePlanetSearch = (data: any) => {
+const usePlanetSearch = (data: []) => {
   const [planet, setPlanet]: any = useState({});
 
   // find chosen planet in JSON file
