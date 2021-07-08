@@ -38,6 +38,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
     // display planet image and data based on user method selection
     <div className="px-6 lg:px-24">
       <div className="grid grid-cols-1 sm:grid-cols-2 sm:mt-20 sm:mb-20">
+        {/* mobile version of mode selector */}
         <ModeSelect dispatch={dispatch} mobile={true} />
         {/* To Do: add a loading state */}
         {mode.name && (
@@ -53,6 +54,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
             content={mode.content}
             source={mode.source}
           />
+          {/* mode selector tor tablets and larger */}
           <ModeSelect dispatch={dispatch} mobile={false} />
         </div>
       </div>
