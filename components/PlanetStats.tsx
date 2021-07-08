@@ -12,22 +12,22 @@ const PlanetStats = ({
   temperature,
 }: CompProps) => {
   return (
-    <div className="grid grid-cols-4">
-      <div>
-        <h4>ROTATION TIME</h4>
-        <span>{rotation}</span>
+    <div className="grid grid-cols-4 gap-10">
+      <div className="border border-gray-600 p-5">
+        <h4 className="font-spartan font-bold text-xs">ROTATION TIME</h4>
+        <span className="font-antonio font-medium text-4xl">{rotation}</span>
       </div>
-      <div>
-        <h4>REVOLUTION TIME</h4>
-        <span>{revolution}</span>
+      <div className="border border-gray-600 p-5">
+        <h4 className="font-spartan font-bold text-xs">REVOLUTION TIME</h4>
+        <span className="font-antonio font-medium text-4xl">{revolution}</span>
       </div>
-      <div>
-        <h4>RADIUS</h4>
-        <span>{radius}</span>
+      <div className="border border-gray-600 p-5">
+        <h4 className="font-spartan font-bold text-xs">RADIUS</h4>
+        <span className="font-antonio font-medium text-4xl">{radius}</span>
       </div>
-      <div>
-        <h4>AVERAGE TEMP.</h4>
-        <span>{temperature}</span>
+      <div className="border border-gray-600 p-5">
+        <h4 className="font-spartan font-bold text-xs">AVERAGE TEMP.</h4>
+        <span className="font-antonio font-medium text-4xl">{temperature}</span>
       </div>
     </div>
   );
