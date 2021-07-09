@@ -12,9 +12,7 @@ const ModeSelect = ({ dispatch, mobile, planetName }: CompProps) => {
   // toggle styles of mode menu based on selection
   const setSelectedStyles = () => {
     Array.from(modeList.current?.children).forEach((el: any) => {
-      console.log(el.dataset.ariaSelected);
       if (el.dataset.ariaSelected === 'true') {
-        console.log('inner truth');
         if (mobile) {
           el.classList.add('border-b', `border-${planetName.toLowerCase()}`);
         } else {
@@ -33,7 +31,6 @@ const ModeSelect = ({ dispatch, mobile, planetName }: CompProps) => {
 
   // event handler for mode menu click
   const handleMenuClick = (e: React.SyntheticEvent, mode: string) => {
-    // e.currentTarget.dataset.ariaSelected = 'true';
     Array.from(modeList.current?.children).forEach((el: any) => {
       if (el.id === e.currentTarget.id) {
         el.dataset.ariaSelected = 'true';
@@ -42,11 +39,10 @@ const ModeSelect = ({ dispatch, mobile, planetName }: CompProps) => {
       }
     });
     setSelectedStyles();
-    // console.log(modeList.current?.children);
     dispatch({ type: mode });
   };
 
-  // reset tyles on planet change
+  // reset styles on planet change
   useEffect(() => {
     Array.from(modeList.current?.children).forEach((el: any) => {
       if (el.id === 'overview') {
