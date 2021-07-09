@@ -28,16 +28,32 @@ export default function Header({ findPlanet }: any) {
       <h1 className="font-antonio font-medium text-3xl">The Planets</h1>
       <div
         ref={navMenu}
-        className="fixed z-10 w-full h-full top-0 sm:static sm:block sm:bg-transparent sm:mt-0 hidden mt-16 bg-black">
-        <ul className="m-auto grid grid-flow-row sm:grid-flow-col font-spartan font-bold cursor-pointer ">
-          <li onClick={() => handleClick('Mercury')}>MERCURY</li>
-          <li onClick={() => handleClick('Venus')}>VENUS</li>
-          <li onClick={() => handleClick('Earth')}>EARTH</li>
-          <li onClick={() => handleClick('Mars')}>MARS</li>
-          <li onClick={() => handleClick('Jupiter')}>JUPITER</li>
-          <li onClick={() => handleClick('Saturn')}>SATURN</li>
-          <li onClick={() => handleClick('Uranus')}>URANUS</li>
-          <li onClick={() => handleClick('Neptune')}>NEPTUNE</li>
+        className="fixed z-10 w-full h-full top-0 left-0 px-6 sm:px-0 sm:static sm:block sm:bg-transparent sm:mt-0 hidden mt-16 bg-background">
+        <ul className="grid grid-flow-row font-spartan font-bold cursor-pointer items-center divide-y divide-border-primary sm:divide-none sm:grid-flow-col sm:h-full">
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Mercury')}>
+            MERCURY
+          </li>
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Venus')}>
+            VENUS
+          </li>
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Earth')}>
+            EARTH
+          </li>
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Mars')}>
+            MARS
+          </li>
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Jupiter')}>
+            JUPITER
+          </li>
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Saturn')}>
+            SATURN
+          </li>
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Uranus')}>
+            URANUS
+          </li>
+          <li className="py-5 sm:py-0" onClick={() => handleClick('Neptune')}>
+            NEPTUNE
+          </li>
         </ul>
       </div>
       <div

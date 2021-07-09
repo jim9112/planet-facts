@@ -5,7 +5,7 @@ type Planet = {
   name: string;
 };
 
-const usePlanetSearch = (data: []) => {
+const usePlanetSearch = (data: any) => {
   const [planet, setPlanet]: any = useState({});
 
   // find chosen planet in JSON file
