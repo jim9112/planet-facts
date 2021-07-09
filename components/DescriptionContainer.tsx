@@ -16,7 +16,7 @@ const DescriptionContainer = ({ name, content, source }: CompProps) => {
       <span>
         Source:{' '}
         <a href={source} target="blank">
-          Wikapedia
+          Wikipedia
         </a>
       </span>
     </div>

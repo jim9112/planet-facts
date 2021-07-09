@@ -30,28 +30,52 @@ export default function Header({ findPlanet }: any) {
         ref={navMenu}
         className="fixed z-10 w-full h-full top-0 left-0 px-6 sm:px-0 sm:static sm:block sm:bg-transparent sm:mt-0 hidden mt-16 bg-background">
         <ul className="grid grid-flow-row font-spartan font-bold cursor-pointer items-center divide-y divide-border-primary sm:divide-none sm:grid-flow-col sm:h-full">
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Mercury')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Mercury')}>
+            <span className="w-5 h-5 block bg-mercury rounded-full mr-6 sm:hidden"></span>{' '}
             MERCURY
           </li>
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Venus')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Venus')}>
+            <span className="w-5 h-5 block bg-venus rounded-full mr-6 sm:hidden"></span>{' '}
             VENUS
           </li>
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Earth')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Earth')}>
+            <span className="w-5 h-5 block bg-earth rounded-full mr-6 sm:hidden"></span>{' '}
             EARTH
           </li>
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Mars')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Mars')}>
+            <span className="w-5 h-5 block bg-mars rounded-full mr-6 sm:hidden"></span>{' '}
             MARS
           </li>
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Jupiter')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Jupiter')}>
+            <span className="w-5 h-5 block bg-jupiter rounded-full mr-6 sm:hidden"></span>{' '}
             JUPITER
           </li>
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Saturn')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Saturn')}>
+            <span className="w-5 h-5 block bg-saturn rounded-full mr-6 sm:hidden"></span>{' '}
             SATURN
           </li>
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Uranus')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Uranus')}>
+            <span className="w-5 h-5 block bg-uranus rounded-full mr-6 sm:hidden"></span>{' '}
             URANUS
           </li>
-          <li className="py-5 sm:py-0" onClick={() => handleClick('Neptune')}>
+          <li
+            className="py-5 sm:py-0 flex items-center"
+            onClick={() => handleClick('Neptune')}>
+            <span className="w-5 h-5 block bg-neptune rounded-full mr-6 sm:hidden"></span>{' '}
             NEPTUNE
           </li>
         </ul>
