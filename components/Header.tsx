@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import hamburger from '../public/static/icon-hamburger.svg';
 
 export default function Header({ findPlanet }: any) {
-  // move logic to hook
+  // To do: move logic to hook
   const [mobile, setMobile] = useState(false);
   const navMenu = useRef<null | HTMLDivElement>(null);
 
