@@ -11,7 +11,7 @@ const PlanetImageContainer = ({
   name,
 }: AppProps) => {
   return (
-    <div className="relative grid place-items-center">
+    <div className="relative grid place-items-center mb-5">
       <Image
         width="200px"
         height="200px"
@@ -20,13 +20,8 @@ const PlanetImageContainer = ({
         alt={name}
       />
       {secondPlanetImage && (
-        <div className="absolute top-1/2 left-1/3">
-          <Image
-            width="163px"
-            height="199px"
-            src={secondPlanetImage}
-            alt={name}
-          />
+        <div className="absolute top-1/3 sm:top-1/2 left-1/3 w-28 h-36">
+          <Image layout="fill" src={secondPlanetImage} alt={name} />
         </div>
       )}
     </div>
