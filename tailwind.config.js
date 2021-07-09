@@ -6,6 +6,7 @@ module.exports = {
       background: '#070724',
       'text-primary': '#FFFFFF',
       'border-primary': '#838391',
+      secondary: '#38384F',
     },
     fontFamily: {
       spartan: ['Spartan', 'sans-serif'],
