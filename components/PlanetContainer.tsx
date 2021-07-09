@@ -39,7 +39,11 @@ const PlanetContainer = ({ planet }: CompProps) => {
     <div className="px-6 lg:px-24">
       <div className="grid grid-cols-1 sm:grid-cols-2 sm:mt-20 sm:mb-20">
         {/* mobile version of mode selector */}
-        <ModeSelect dispatch={dispatch} mobile={true} />
+        <ModeSelect
+          dispatch={dispatch}
+          mobile={true}
+          planetName={planet.name}
+        />
         {/* To Do: add a loading state */}
         {mode.name && (
           <PlanetImageContainer
@@ -55,7 +59,11 @@ const PlanetContainer = ({ planet }: CompProps) => {
             source={mode.source}
           />
           {/* mode selector tor tablets and larger */}
-          <ModeSelect dispatch={dispatch} mobile={false} />
+          <ModeSelect
+            dispatch={dispatch}
+            mobile={false}
+            planetName={planet.name}
+          />
         </div>
       </div>
       <PlanetStats
