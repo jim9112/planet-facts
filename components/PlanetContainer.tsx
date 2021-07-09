@@ -32,7 +32,7 @@ type CompProps = {
 };
 
 const PlanetContainer = ({ planet }: CompProps) => {
-  const { mode, dispatch } = useModeSelection(planet);
+  const { mode, dispatch, currentMode } = useModeSelection(planet);
 
   return (
     // display planet image and data based on user method selection
@@ -43,6 +43,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
           dispatch={dispatch}
           mobile={true}
           planetName={planet.name}
+          currentMode={currentMode}
         />
         {/* To Do: add a loading state */}
         {mode.name && (
@@ -63,6 +64,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
             dispatch={dispatch}
             mobile={false}
             planetName={planet.name}
+            currentMode={currentMode}
           />
         </div>
       </div>

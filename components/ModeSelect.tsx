@@ -4,9 +4,15 @@ type CompProps = {
   dispatch: ({}) => {};
   mobile: boolean;
   planetName: string;
+  currentMode: string | null;
 };
 
-const ModeSelect = ({ dispatch, mobile, planetName }: CompProps) => {
+const ModeSelect = ({
+  dispatch,
+  mobile,
+  planetName,
+  currentMode,
+}: CompProps) => {
   const modeList = useRef<any>(null);
 
   // toggle styles of mode menu based on selection
