@@ -3,6 +3,7 @@ import DescriptionContainer from './DescriptionContainer';
 import PlanetImageContainer from './PlanetImageContainer';
 import ModeSelect from './ModeSelect';
 import PlanetStats from './PlanetStats';
+import { useState } from 'react';
 
 type CompProps = {
   planet: {
@@ -32,7 +33,8 @@ type CompProps = {
 };
 
 const PlanetContainer = ({ planet }: CompProps) => {
-  const { mode, dispatch, currentMode } = useModeSelection(planet);
+  const { mode, dispatch } = useModeSelection(planet);
+  const [currentMode, setCurrentMode] = useState<any>('');
 
   return (
     // display planet image and data based on user method selection
@@ -44,6 +46,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
           mobile={true}
           planetName={planet.name}
           currentMode={currentMode}
+          setCurrentMode={setCurrentMode}
         />
         {/* To Do: add a loading state */}
         {mode.name && (
@@ -65,6 +68,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
             mobile={false}
             planetName={planet.name}
             currentMode={currentMode}
+            setCurrentMode={setCurrentMode}
           />
         </div>
       </div>

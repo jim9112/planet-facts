@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 type CompProps = {
   dispatch: ({}) => {};
   mobile: boolean;
   planetName: string;
-  currentMode: string | null;
+  currentMode: string;
+  setCurrentMode: (currentMode: string) => void;
 };
 
 const ModeSelect = ({
@@ -12,54 +13,50 @@ const ModeSelect = ({
   mobile,
   planetName,
   currentMode,
+  setCurrentMode,
 }: CompProps) => {
   const modeList = useRef<any>(null);
-
   // toggle styles of mode menu based on selection
   const setSelectedStyles = () => {
+    console.log(currentMode);
     Array.from(modeList.current?.children).forEach((el: any) => {
-      if (el.dataset.ariaSelected === 'true') {
-        if (mobile) {
-          el.classList.add('border-b', `border-${planetName.toLowerCase()}`);
-        } else {
-          el.classList.add(`bg-${planetName.toLowerCase()}`);
-        }
+      if (el.id === currentMode) {
+        el.classList.add(
+          'border-b',
+          `border-${planetName.toLowerCase()}`,
+          `sm:bg-${planetName.toLowerCase()}`,
+          'sm:border-b-0'
+        );
       } else {
-        mobile
-          ? el.classList.remove(
-              'border-b',
-              `border-${planetName.toLowerCase()}`
-            )
-          : el.classList.remove(`bg-${planetName.toLowerCase()}`);
+        el.classList.remove(
+          'border-b',
+          `border-${planetName.toLowerCase()}`,
+          `sm:bg-${planetName.toLowerCase()}`,
+          'sm:border-b-0'
+        );
       }
     });
   };
 
   // event handler for mode menu click
-  const handleMenuClick = (e: React.SyntheticEvent, mode: string) => {
-    Array.from(modeList.current?.children).forEach((el: any) => {
-      if (el.id === e.currentTarget.id) {
-        el.dataset.ariaSelected = 'true';
-      } else {
-        el.dataset.ariaSelected = 'false';
-      }
-    });
-    setSelectedStyles();
+  const handleMenuClick = async (e: React.SyntheticEvent, mode: string) => {
+    setCurrentMode(e.currentTarget.id);
     dispatch({ type: mode });
   };
 
+  // sets mode menu styles on mode change
+  useEffect(() => {
+    setSelectedStyles();
+  }, [currentMode]);
+
   // reset styles on planet change
   useEffect(() => {
+    // reset each li style to base style
     Array.from(modeList.current?.children).forEach((el: any) => {
-      if (el.id === 'overview') {
-        el.dataset.ariaSelected = 'true';
-      } else {
-        el.dataset.ariaSelected = 'false';
-      }
       el.className =
         'sm:px-7 py-3 sm:border sm:border-gray-600 hover:bg-secondary';
     });
-    setSelectedStyles();
+    setCurrentMode('overview');
   }, [planetName]);
 
   return (

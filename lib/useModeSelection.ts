@@ -22,7 +22,6 @@ type CompProps = {
 };
 
 const useModeSelection = (planet: CompProps) => {
-  const [currentMode, setCurrentMode] = useState<null | string>(null);
   // initial state is set to "overview mode"
   const initialState = {
     name: planet.name,
@@ -36,7 +35,6 @@ const useModeSelection = (planet: CompProps) => {
   const reducer = (state: {}, action: { type: string }) => {
     switch (action.type) {
       case 'overview':
-        setCurrentMode(action.type);
         return {
           name: planet.name,
           planetImage: planet.images.planet,
@@ -45,7 +43,6 @@ const useModeSelection = (planet: CompProps) => {
           source: planet.overview.source,
         };
       case 'internal':
-        setCurrentMode(action.type);
         return {
           name: planet.name,
           planetImage: planet.images.internal,
@@ -54,7 +51,6 @@ const useModeSelection = (planet: CompProps) => {
           source: planet.structure.source,
         };
       case 'geology':
-        setCurrentMode(action.type);
         return {
           name: planet.name,
           planetImage: planet.images.planet,
@@ -73,7 +69,7 @@ const useModeSelection = (planet: CompProps) => {
     dispatch({ type: 'overview' });
   }, [planet]);
 
-  return { mode, dispatch, currentMode };
+  return { mode, dispatch };
 };
 
 export default useModeSelection;
