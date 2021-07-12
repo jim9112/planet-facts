@@ -18,7 +18,6 @@ const ModeSelect = ({
   const modeList = useRef<any>(null);
   // toggle styles of mode menu based on selection
   const setSelectedStyles = () => {
-    console.log(currentMode);
     Array.from(modeList.current?.children).forEach((el: any) => {
       if (el.id === currentMode) {
         el.classList.add(
@@ -57,6 +56,7 @@ const ModeSelect = ({
         'sm:px-7 py-3 sm:border sm:border-gray-600 hover:bg-secondary';
     });
     setCurrentMode('overview');
+    setSelectedStyles();
   }, [planetName]);
 
   return (

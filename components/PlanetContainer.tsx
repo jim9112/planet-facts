@@ -34,7 +34,7 @@ type CompProps = {
 
 const PlanetContainer = ({ planet }: CompProps) => {
   const { mode, dispatch } = useModeSelection(planet);
-  const [currentMode, setCurrentMode] = useState<any>('');
+  const [currentMode, setCurrentMode] = useState<any>();
 
   return (
     // display planet image and data based on user method selection
