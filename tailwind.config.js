@@ -1,14 +1,34 @@
 module.exports = {
-  purge: [
-    './pages/**/*.js',
-    './pages/**/*.ts',
-    './pages/**/*.jsx',
-    './pages/**/*.tsx',
-    './components/**/*.js',
-    './components/**/*.ts',
-    './components/**/*.jsx',
-    './components/**/*.tsx',
-  ],
+  purge: {
+    content: [
+      './pages/**/*.js',
+      './pages/**/*.ts',
+      './pages/**/*.jsx',
+      './pages/**/*.tsx',
+      './components/**/*.js',
+      './components/**/*.ts',
+      './components/**/*.jsx',
+      './components/**/*.tsx',
+    ],
+    safelist: [
+      'sm:bg-mercury',
+      'sm:bg-venus',
+      'sm:bg-earth',
+      'sm:bg-mars',
+      'sm:bg-saturn',
+      'sm:bg-jupiter',
+      'sm:bg-uranus',
+      'sm:bg-neptune',
+      'border-mercury',
+      'border-venus',
+      'border-earth',
+      'border-mars',
+      'border-saturn',
+      'border-jupiter',
+      'border-uranus',
+      'border-neptune',
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
