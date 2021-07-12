@@ -25,7 +25,9 @@ export default function Header({ findPlanet }: any) {
 
   return (
     <div className="relative grid grid-flow-col sm:grid-flow-row sm:text-center lg:grid-flow-col lg:text-left text-xs py-5 px-5 items-center">
-      <h1 className="font-antonio font-medium text-3xl">The Planets</h1>
+      <h1 className="font-antonio font-medium text-3xl sm:text-2xl sm:mb-9 lg:mb-0">
+        The Planets
+      </h1>
       <div
         ref={navMenu}
         className="fixed z-10 w-full h-full top-0 left-0 px-6 sm:px-0 sm:static sm:block sm:bg-transparent sm:mt-0 hidden mt-16 bg-background">

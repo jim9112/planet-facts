@@ -60,7 +60,10 @@ const ModeSelect = ({
   }, [planetName]);
 
   return (
-    <nav className={`${!mobile ? 'hidden sm:block' : 'sm:hidden block mb-6'} `}>
+    <nav
+      className={`${
+        !mobile ? 'hidden sm:grid sm:items-center' : 'sm:hidden block mb-6'
+      } `}>
       <ul
         ref={modeList}
         className="grid grid-cols-3 sm:grid-cols-1 gap-4 cursor-pointer font-spartan font-bold text-xs text-center sm:text-left">

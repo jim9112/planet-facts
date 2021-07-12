@@ -39,7 +39,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
   return (
     // display planet image and data based on user method selection
     <div className="px-6 lg:px-24">
-      <div className="grid grid-cols-1 sm:grid-cols-2 sm:mt-20 sm:mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 sm:mt-20 sm:mb-20">
         {/* mobile version of mode selector */}
         <ModeSelect
           dispatch={dispatch}
@@ -56,7 +56,7 @@ const PlanetContainer = ({ planet }: CompProps) => {
             secondPlanetImage={mode.secondPlanetImage}
           />
         )}
-        <div className="grid grid-cols-1 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-10 sm:mt-28 lg:mt-0">
           <DescriptionContainer
             name={mode.name}
             content={mode.content}
