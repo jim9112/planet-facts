@@ -4,7 +4,7 @@ This project was a challange from [Frontend Mentor](https://www.frontendmentor.i
 
 ## Technologies Used
 
-This project was built using [Next.js](https://nextjs.org/) bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)., [TailwindCSS](https://tailwindcss.com/), and [TypeScript](https://www.typescriptlang.org/)
+This project was built using [Next.js](https://nextjs.org/) bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), [TailwindCSS](https://tailwindcss.com/), and [TypeScript](https://www.typescriptlang.org/)
 
 ## Clone This Project
 
